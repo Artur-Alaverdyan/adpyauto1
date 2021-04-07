@@ -54,7 +54,7 @@ def login():
 
 # NOTE: Test case routes
 @app.route("/api/v1/test_cases", methods=['GET'])
-@jwt_required
+@jwt_required()
 def get_all_test_cases():
     """Get all test cases data.
 
@@ -65,7 +65,7 @@ def get_all_test_cases():
 
 
 @app.route("/api/v1/test_cases/<test_case_id>", methods=['GET'])
-@jwt_required
+@jwt_required()
 def get_test_case(test_case_id):
     """Get test case data.
 
@@ -79,7 +79,7 @@ def get_test_case(test_case_id):
 
 
 @app.route("/api/v1/test_cases", methods=['POST'])
-@jwt_required
+@jwt_required()
 def post_test_case():
     """Create new test case.
 
@@ -117,7 +117,7 @@ def post_test_case():
 
 
 @app.route("/api/v1/test_cases", methods=['DELETE'])
-@jwt_required
+@jwt_required()
 def delete_all_test_cases():
     """All test cases deletion.
 
@@ -134,7 +134,7 @@ def delete_all_test_cases():
 
 
 @app.route("/api/v1/test_cases/<test_case_id>", methods=['PUT'])
-@jwt_required
+@jwt_required()
 def put_test_case(test_case_id):
     """Update existing test case data.
 
@@ -167,7 +167,7 @@ def put_test_case(test_case_id):
 
 
 @app.route("/api/v1/test_cases/<test_case_id>", methods=['DELETE'])
-@jwt_required
+@jwt_required()
 def delete_test_case(test_case_id):
     """Test case deletion.
 
@@ -188,7 +188,7 @@ def delete_test_case(test_case_id):
 
 # NOTE: Test Suite routes
 @app.route("/api/v1/test_suites", methods=['GET'])
-@jwt_required
+@jwt_required()
 def get_all_test_suites():
     """Get all test suites data.
 
@@ -199,7 +199,7 @@ def get_all_test_suites():
 
 
 @app.route("/api/v1/test_suites/<test_suite_id>", methods=['GET'])
-@jwt_required
+@jwt_required()
 def get_test_suite(test_suite_id):
     """Get test suite data.
 
@@ -214,7 +214,7 @@ def get_test_suite(test_suite_id):
 
 
 @app.route("/api/v1/test_suites", methods=['POST'])
-@jwt_required
+@jwt_required()
 def post_test_suite():
     """Create test suite record.
 
@@ -243,7 +243,7 @@ def post_test_suite():
 
 
 @app.route("/api/v1/test_suites", methods=['DELETE'])
-@jwt_required
+@jwt_required()
 def delete_all_test_suites():
     """Delete test suite.
 
@@ -269,7 +269,7 @@ def delete_all_test_suites():
 
 
 @app.route("/api/v1/test_suites/<test_suite_id>", methods=['PUT'])
-@jwt_required
+@jwt_required()
 def put_test_suite(test_suite_id):
     """Update existing test suite data.
 
@@ -297,7 +297,7 @@ def put_test_suite(test_suite_id):
 
 
 @app.route("/api/v1/test_suites/<test_suite_id>", methods=['DELETE'])
-@jwt_required
+@jwt_required()
 def delete_test_suite(test_suite_id):
     """Delete test suite.
 

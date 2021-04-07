@@ -46,7 +46,8 @@ Application usage:
 
     Run locally:
         1. cd {PROJECT_ROOT_DIR}
-        2. python -m rest
+        2. pip install --upgrade -r requirements.txt
+        3. python -m rest
         or python ./rest/__main__.py
     
         
