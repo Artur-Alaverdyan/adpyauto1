@@ -9,12 +9,12 @@ class TestCaseRedis(AbstractRedisInstance):
     """High level functional for work with Test cases hash in Redis storage.
 
     Test case record schema (inside of hash):
-        "id": "{suite_id:<str>,title:<str>,description:<strt>}"
+        "id": "{suiteID:<str>,title:<str>,description:<str>}"
 
     Test case data schema (used in responses):
         {
             id: unique identifier
-            suites_id: connection to suite
+            suiteID: connection to suite
             title: test case name
             description: short info about test case
         }
@@ -42,7 +42,7 @@ class TestCaseRedis(AbstractRedisInstance):
 
         :param data: test case data, schema:
                 {
-                    suites_id: connection to suite
+                    suiteID: connection to suite
                     title: test case name
                     description: short info about test case
                 }
@@ -122,4 +122,4 @@ class TestCaseRedis(AbstractRedisInstance):
         :return: suite id (int)
         """
         case_data = get_json_from_str(self.__redis.get_item(case_id))
-        return int(case_data['suite_id'])
+        return int(case_data['suiteID'])
