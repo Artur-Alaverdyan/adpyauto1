@@ -85,7 +85,7 @@ def post_test_case():
 
     Body schema for request:
         {
-            suites_id: connection to suite
+            suiteID: connection to suite
             title: test case name
             description: short info about test case
         }
@@ -104,15 +104,15 @@ def post_test_case():
                 server_data['requests']['body']['test_case']]):
         return jsonify(message="Bad request body"), 400
 
-    if not suite_redis.is_item_exists(data['suite_id']):
+    if not suite_redis.is_item_exists(data['suiteID']):
         return jsonify(message="Test suite does not exist"), 404
 
     result = case_redis.add(data)
     if result is None:
         return jsonify(message="Test case already exist"), 409
 
-    suite_redis.update_cases(data['suite_id'], result, '+')
-    suite_redis.update_length(data['suite_id'], "+")
+    suite_redis.update_cases(data['suiteID'], result, '+')
+    suite_redis.update_length(data['suiteID'], "+")
     return jsonify(message="Test case successfully added", id=result), 200
 
 
@@ -126,8 +126,8 @@ def delete_all_test_cases():
     case_list = case_redis.get_all()
 
     for case in case_list:
-        suite_redis.update_cases(case['suite_id'], case['id'], '-')
-        suite_redis.update_length(case['suite_id'], "-")
+        suite_redis.update_cases(case['suiteID'], case['id'], '-')
+        suite_redis.update_length(case['suiteID'], "-")
 
     case_redis.delete_all()
     return jsonify(message="All test cases successfully deleted"), 200
@@ -140,7 +140,7 @@ def put_test_case(test_case_id):
 
     Body schema for request:
         {
-            suites_id: connection to suite
+            suiteID: connection to suite
             title: test case name
             description: short info about test case
         }
@@ -274,7 +274,7 @@ def put_test_suite(test_suite_id):
     """Update existing test suite data.
 
     Body schema for request: {title:<string>}
-    :param test_suite_id: id of test suite
+    :param test_suite_id: id of a test suite
     :return: {message:<str>}
     """
     if request.content_type != "application/json":
