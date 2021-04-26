@@ -14,7 +14,7 @@ hash_names:
 requests:
   body:
     test_case:
-      - suite_id
+      - suiteID
       - title
       - description
     test_suite:
